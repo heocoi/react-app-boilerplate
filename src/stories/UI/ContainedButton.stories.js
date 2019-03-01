@@ -1,18 +1,41 @@
-import React from 'react';
-
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-
-import ContainedButton from '../../components/UI/ContainedButton';
+import { createMuiTheme } from '@material-ui/core/styles';
 import KeyboardVoiceIcon from '@material-ui/icons/KeyboardVoice';
+import { action } from '@storybook/addon-actions';
+import { storiesOf } from '@storybook/react';
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import ContainedButton from '../../components/UI/ContainedButton';
+
+const theme = createMuiTheme({
+  mode: 'light'
+});
 
 storiesOf('ContainedButton', module)
   .add('with text', () => (
-    <ContainedButton onClick={action('clicked')}>Hello Button</ContainedButton>
+    <ThemeProvider theme={theme}>
+      <ContainedButton onClick={action('clicked')}>
+        Hello Button
+      </ContainedButton>
+    </ThemeProvider>
   ))
   .add('with icon', () => (
-    <ContainedButton onClick={action('clicked')}>
-      <KeyboardVoiceIcon />
-      Talk
-    </ContainedButton>
+    <ThemeProvider theme={theme}>
+      <ContainedButton onClick={action('clicked')}>
+        <KeyboardVoiceIcon />
+        Talk
+      </ContainedButton>
+    </ThemeProvider>
+  ))
+  .add('variants', () => (
+    <ThemeProvider theme={theme}>
+      <div>
+        <ContainedButton onClick={action('clicked')}>Default</ContainedButton>
+        <ContainedButton onClick={action('clicked')} color="primary">
+          Primary
+        </ContainedButton>
+        <ContainedButton onClick={action('clicked')} color="secondary">
+          Secondary
+        </ContainedButton>
+      </div>
+    </ThemeProvider>
   ));
