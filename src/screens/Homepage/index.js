@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
-import styled, { keyframes } from 'styled-components';
-import logo from '../../statics/images/logo.svg';
+// @flow
+
+import React, { Component } from "react";
+import styled, { keyframes } from "styled-components";
+import logo from "../../statics/images/logo.svg";
 
 const logoSpin = keyframes`
     from {
@@ -32,7 +34,9 @@ const StyledLink = styled.a`
   color: #61dafb;
 `;
 
-class Homepage extends Component {
+type Props = {};
+
+class Homepage extends Component<Props> {
   render() {
     return (
       <div>

@@ -1,9 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { createGlobalStyle } from 'styled-components';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+// @flow
+
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import { createGlobalStyle } from "styled-components";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -22,15 +24,18 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
-ReactDOM.render(
-  <Router>
-    <React.Fragment>
-      <GlobalStyle />
-      <App />
-    </React.Fragment>
-  </Router>,
-  document.getElementById('root')
-);
+const root = document.getElementById("root");
+if (root !== null) {
+  ReactDOM.render(
+    <Router>
+      <React.Fragment>
+        <GlobalStyle />
+        <App />
+      </React.Fragment>
+    </Router>,
+    root
+  );
+}
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

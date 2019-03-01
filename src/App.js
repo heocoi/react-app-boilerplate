@@ -1,13 +1,15 @@
-import { createMuiTheme } from '@material-ui/core/styles';
-import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
-import styled, { ThemeProvider } from 'styled-components';
-import Homepage from './screens/Homepage';
+// @flow
+
+import { createMuiTheme } from "@material-ui/core/styles";
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
+import styled, { ThemeProvider } from "styled-components";
+import Homepage from "./screens/Homepage";
 
 // using createMuiTheme from @material-ui/core to create theme props
 // then, pass these props to ThemeProvider of styled-components
-const theme = createMuiTheme({
-  mode: 'light',
+const theme: {} = createMuiTheme({
+  mode: "light",
   typography: {
     useNextVariants: true
   }
@@ -16,13 +18,18 @@ const theme = createMuiTheme({
 // router config
 const routes = [
   {
-    path: '/',
+    path: "/",
     exact: true,
-    component: Homepage
+    component: Homepage,
+    routes: {}
   }
 ];
 
-const RouteWithSubRoutes = route => (
+const RouteWithSubRoutes = (route: {
+  path: string,
+  component: any,
+  routes: any
+}) => (
   <Route
     path={route.path}
     render={props => (
@@ -33,10 +40,12 @@ const RouteWithSubRoutes = route => (
 );
 
 const MainWrapper = styled.div`
-  text-align: 'center';
+  text-align: "center";
 `;
 
-class App extends Component {
+type Props = {};
+
+class App extends Component<Props> {
   render() {
     return (
       <ThemeProvider theme={theme}>

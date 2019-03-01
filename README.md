@@ -9,6 +9,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Formatting code with [Prettier](https://prettier.io/). Auto formatting before commit by using git-hook
 with [husky](https://github.com/typicode/husky)
 - Routing with [React Router](https://reacttraining.com/react-router)
+- Static type checking with [Flow](https://flow.org)
 
 ## Folder Structure
 See document about [Folder structure](https://facebook.github.io/create-react-app/docs/folder-structure) for more infomation.
@@ -34,6 +35,10 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.<br>
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `yarn flow`
+
+Check static type with Flow.
 
 ### `yarn build`
 

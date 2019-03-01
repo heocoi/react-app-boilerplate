@@ -1,22 +1,29 @@
-import Button from '@material-ui/core/Button';
-import PropTypes from 'prop-types';
-import React from 'react';
-import styled, { withTheme } from 'styled-components';
-import theme from 'styled-theming';
+// @flow
 
-const backgroundColor = theme.variants('mode', 'color', {
-  default: { light: 'wheat' },
-  primary: { light: 'crimson' }
+import Button from "@material-ui/core/Button";
+import React from "react";
+import styled, { withTheme } from "styled-components";
+import theme from "styled-theming";
+
+const backgroundColor = theme.variants("mode", "color", {
+  default: { light: "wheat" },
+  primary: { light: "crimson" }
 });
 
 const StyledButton = styled(Button)`
   && {
-    margin: ${props => props.theme.spacing.unit + 'px'};
+    margin: ${props => props.theme.spacing.unit + "px"};
     background-color: ${backgroundColor};
   }
 `;
 
-function ContainedButton({ children, ...other }) {
+type Props = {
+  color: "default" | "primary" | "secondary",
+  children: any
+};
+
+function ContainedButton(props: Props) {
+  const { children, ...other } = props;
   return (
     <StyledButton variant="contained" {...other}>
       {children}
@@ -24,11 +31,8 @@ function ContainedButton({ children, ...other }) {
   );
 }
 
-ContainedButton.propTypes = {
-  color: PropTypes.oneOf(['default', 'primary', 'secondary'])
-};
 ContainedButton.defaultProps = {
-  color: 'default'
+  color: "default"
 };
 
 export default withTheme(ContainedButton);
