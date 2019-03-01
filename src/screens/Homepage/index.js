@@ -42,6 +42,10 @@ class Homepage extends Component<Props> {
       <div>
         <StyledHeader>
           <Logo src={logo} alt="logo" />
+          <h3>
+            App version: {process.env.REACT_APP_VERSION} ({process.env.NODE_ENV}
+            )
+          </h3>
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
