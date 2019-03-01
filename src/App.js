@@ -1,33 +1,47 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 import React, { Component } from 'react';
-import { ThemeProvider } from 'styled-components';
-import './App.css';
-import logo from './logo.svg';
+import { Route } from 'react-router-dom';
+import styled, { ThemeProvider } from 'styled-components';
+import Homepage from './screens/Homepage';
 
 // using createMuiTheme from @material-ui/core to create theme props
 // then, pass these props to ThemeProvider of styled-components
 const theme = createMuiTheme({ mode: 'light' });
 
+// router config
+const routes = [
+  {
+    path: '/',
+    exact: true,
+    component: Homepage
+  }
+];
+
+const RouteWithSubRoutes = route => (
+  <Route
+    path={route.path}
+    render={props => (
+      // pass the sub-routes down to keep nesting
+      <route.component {...props} routes={route.routes} />
+    )}
+  />
+);
+
+const MainWrapper = styled.div`
+  text-align: 'center';
+`;
+
 class App extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
-          </header>
-        </div>
+        <MainWrapper>
+          <React.Fragment>
+            {routes.map((route, i) => (
+              <RouteWithSubRoutes key={i} {...route} />
+            ))}
+          </React.Fragment>
+        </MainWrapper>
       </ThemeProvider>
     );
   }

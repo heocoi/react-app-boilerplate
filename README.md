@@ -8,6 +8,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Lint with [ESLinter](https://eslint.org/)
 - Formatting code with [Prettier](https://prettier.io/). Auto formatting before commit by using git-hook
 with [husky](https://github.com/typicode/husky)
+- Routing with [React Router](https://reacttraining.com/react-router)
 
 ## Folder Structure
 See document about [Folder structure](https://facebook.github.io/create-react-app/docs/folder-structure) for more infomation.
