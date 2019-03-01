@@ -6,7 +6,12 @@ import Homepage from './screens/Homepage';
 
 // using createMuiTheme from @material-ui/core to create theme props
 // then, pass these props to ThemeProvider of styled-components
-const theme = createMuiTheme({ mode: 'light' });
+const theme = createMuiTheme({
+  mode: 'light',
+  typography: {
+    useNextVariants: true
+  }
+});
 
 // router config
 const routes = [

@@ -7,7 +7,10 @@ import { ThemeProvider } from 'styled-components';
 import ContainedButton from '../../components/UI/ContainedButton';
 
 const theme = createMuiTheme({
-  mode: 'light'
+  mode: 'light',
+  typography: {
+    useNextVariants: true
+  }
 });
 
 storiesOf('ContainedButton', module)
