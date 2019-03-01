@@ -1,10 +1,27 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Features
+- Developing Components in Isolation with [storybook.js](https://storybook.js.org/)
+- [material-ui](https://material-ui.com) 
+- Styling components with [styled-components](https://www.styled-components.com/)
+- Theming with [styled-theming](https://github.com/styled-components/styled-theming)
+- Lint with [ESLinter](https://eslint.org/)
+- Formatting code with [Prettier](https://prettier.io/). Auto formatting before commit by using git-hook
+with [husky](https://github.com/typicode/husky)
+
+## Folder Structure
+See document about [Folder structure](https://facebook.github.io/create-react-app/docs/folder-structure) for more infomation.
+
+Read [Structuring projects and naming components in React](https://hackernoon.com/structuring-projects-and-naming-components-in-react-1261b6e18d76)
+
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### `yarn install`
+Install required modules.
+
+### `yarn start`
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -12,12 +29,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
-### `npm test`
+### `yarn test`
 
 Launches the test runner in the interactive watch mode.<br>
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### `yarn build`
 
 Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -27,7 +44,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### `yarn eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
@@ -36,6 +53,13 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+### `yarn run storybook`
+
+Open Storybook for browsering components.
+
+### `yarn analyze`
+Analyze JavaScript bundles after run `yarn build`.
 
 ## Learn More
 
@@ -62,7 +86,3 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/ad
 ### Deployment
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
