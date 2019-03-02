@@ -1,6 +1,6 @@
 // @flow
-
 import React from "react";
+import { Helmet } from "react-helmet";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
@@ -28,10 +28,13 @@ const root = document.getElementById("root");
 if (root !== null) {
   ReactDOM.render(
     <Router>
-      <React.Fragment>
+      <>
+        <Helmet>
+          <title>App Title</title>
+        </Helmet>
         <GlobalStyle />
         <App />
-      </React.Fragment>
+      </>
     </Router>,
     root
   );

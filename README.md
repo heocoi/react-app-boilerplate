@@ -10,6 +10,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 with [husky](https://github.com/typicode/husky)
 - Routing with [React Router](https://reacttraining.com/react-router)
 - Static type checking with [Flow](https://flow.org)
+- Manage all of your changes to the document head with [react-helmet](https://github.com/nfl/react-helmet)
 
 ## Folder Structure
 See document about [Folder structure](https://facebook.github.io/create-react-app/docs/folder-structure) for more infomation.
