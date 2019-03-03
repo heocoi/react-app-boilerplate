@@ -1,7 +1,10 @@
 // @flow
 
-import React, { Component } from "react";
+import React from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import styled, { keyframes } from "styled-components";
+import { add, increment } from "../../redux/modules/counter";
 import logo from "../../statics/images/logo.svg";
 
 const logoSpin = keyframes`
@@ -34,32 +37,46 @@ const StyledLink = styled.a`
   color: #61dafb;
 `;
 
-type Props = {};
+function Homepage({ counter, onIncrement }) {
+  return (
+    <div>
+      <StyledHeader>
+        <Logo src={logo} alt="logo" />
+        <h4>
+          App version: {process.env.REACT_APP_VERSION} ({process.env.NODE_ENV})
+        </h4>
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <StyledLink
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </StyledLink>
 
-class Homepage extends Component<Props> {
-  render() {
-    return (
-      <div>
-        <StyledHeader>
-          <Logo src={logo} alt="logo" />
-          <h3>
-            App version: {process.env.REACT_APP_VERSION} ({process.env.NODE_ENV}
-            )
-          </h3>
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <StyledLink
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </StyledLink>
-        </StyledHeader>
-      </div>
-    );
-  }
+        <p>
+          <b>Redux example</b> <br />
+          <b>Counter</b>: {counter} &nbsp;&nbsp;
+          <button onClick={() => onIncrement()}>Increment</button>
+        </p>
+      </StyledHeader>
+    </div>
+  );
 }
 
-export default Homepage;
+const mapStateToProps = (state, ownProps) => ({
+  // ... computed data from state and optionally ownProps
+  counter: state.counter
+});
+
+const mapDispatchToProps = dispatch => ({
+  // ... normally is an object full of action creators
+  onIncrement: bindActionCreators(increment, dispatch),
+  onAdd: bindActionCreators(add, dispatch)
+});
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Homepage);

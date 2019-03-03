@@ -6,6 +6,9 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import configureAppStore from "./redux/configureStore";
+import { Provider } from "react-redux";
+const store = configureAppStore();
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -24,21 +27,24 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
-const root = document.getElementById("root");
-if (root !== null) {
-  ReactDOM.render(
-    <Router>
-      <>
-        <Helmet>
-          <title>App Title</title>
-        </Helmet>
-        <GlobalStyle />
-        <App />
-      </>
-    </Router>,
-    root
-  );
-}
+const renderApp = () => {
+  const root = document.getElementById("root");
+  if (root !== null) {
+    ReactDOM.render(
+      <Router>
+        <Provider store={store}>
+          <Helmet>
+            <title>App Title</title>
+          </Helmet>
+          <GlobalStyle />
+          <App />
+        </Provider>
+      </Router>,
+      root
+    );
+  }
+};
+renderApp();
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
